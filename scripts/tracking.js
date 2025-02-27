@@ -1,8 +1,10 @@
 import { getProduct, loadProductsFetch } from "../data/products.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import "./utils/search.js";
+import { updateCartQuantity } from "./amazon.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
+  updateCartQuantity();
   await loadProductsFetch();
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -85,4 +87,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   updateTrackingStatus(statusIndex);
+
 });
+
